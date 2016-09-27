@@ -1,0 +1,21 @@
+id	标题	链接	评分	海报	播放源	新电影
+25945280	我的特工爷爷	https://movie.douban.com/subject/25945280/	5.3	https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2325687277.jpg	playable	nonew
+20326665	星球大战7：原力觉醒	https://movie.douban.com/subject/20326665/	7.1	https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2293954118.jpg	playable	nonew
+26368359	光辉岁月	https://movie.douban.com/subject/26368359/	6.9	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2324794412.jpg	noplayable	nonew
+25881535	信长协奏曲 电影版	https://movie.douban.com/subject/25881535/	6.8	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2276314726.jpg	noplayable	nonew
+26394441	我最好朋友的婚礼	https://movie.douban.com/subject/26394441/	4.4	https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2365223709.jpg	noplayable	nonew
+10791575	猎神：冬日之战	https://movie.douban.com/subject/10791575/	5.4	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2326492532.jpg	playable	nonew
+4881217	被拒人生	https://movie.douban.com/subject/4881217/	7.5	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2269868540.jpg	noplayable	nonew
+26328112	凤伊金先达	https://movie.douban.com/subject/26328112/	6.4	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2364927832.jpg	noplayable	nonew
+26753451	卡普尔家的儿子们	https://movie.douban.com/subject/26753451/	7.9	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2325944476.jpg	noplayable	nonew
+25911595	第三种爱情	https://movie.douban.com/subject/25911595/	5.2	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2267236332.jpg	playable	nonew
+26576793	我才不会对黑崎君说的话言听计从	https://movie.douban.com/subject/26576793/	5.1	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2295161284.jpg	noplayable	nonew
+26050200	擦枪走火	https://movie.douban.com/subject/26050200/	4.4	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2286232540.jpg	playable	nonew
+10466836	维克多·弗兰肯斯坦	https://movie.douban.com/subject/10466836/	6.0	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2263543773.jpg	noplayable	nonew
+7065211	怒海救援	https://movie.douban.com/subject/7065211/	7.1	https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2282760267.jpg	playable	nonew
+26416169	纯情	https://movie.douban.com/subject/26416169/	7.1	https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2314222118.jpg	noplayable	nonew
+26640888	诱人的飞行	https://movie.douban.com/subject/26640888/	3.9	https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2278145589.jpg	noplayable	nonew
+26675674	空即是色	https://movie.douban.com/subject/26675674/	4.5	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2289999690.jpg	noplayable	nonew
+26375689	橘色奇迹	https://movie.douban.com/subject/26375689/	6.7	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2293954725.jpg	noplayable	nonew
+26301701	你好，我叫多蕾丝	https://movie.douban.com/subject/26301701/	7.1	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2286292271.jpg	noplayable	nonew
+25880986	食梦者	https://movie.douban.com/subject/25880986/	7.7	https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2253403387.jpg	noplayable	nonew
