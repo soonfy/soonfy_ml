@@ -1,8 +1,0 @@
-id	标题	链接	评分	海报	播放源	新电影
-25760247	鼠来宝4：萌在囧途	https://movie.douban.com/subject/25760247/	6.7	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2305715574.jpg	noplayable	nonew
-26611458	分手再说我爱你	https://movie.douban.com/subject/26611458/	6.5	https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2295428089.jpg	noplayable	nonew
-26703844	掠夺者	https://movie.douban.com/subject/26703844/	5.2	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2357155380.jpg	noplayable	nonew
-26258796	独家报道：良辰杀人记	https://movie.douban.com/subject/26258796/	6.7	https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2327964337.jpg	noplayable	nonew
-11632599	轩辕大帝	https://movie.douban.com/subject/11632599/	4.6	https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2326715708.jpg	playable	nonew
-26427203	来看我吧	https://movie.douban.com/subject/26427203/	6.4	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2325655984.jpg	noplayable	nonew
-26385107	五十度黑	https://movie.douban.com/subject/26385107/	4.6	https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2286154000.jpg	noplayable	nonew
