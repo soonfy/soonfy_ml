@@ -1,0 +1,24 @@
+{
+  "name": "machine_learning",
+  "version": "1.0.0",
+  "description": "machine learning, python",
+  "main": "main.py",
+  "scripts": {
+    "test": "python3 demo.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soonfy/soonfy_ml.git"
+  },
+  "keywords": [
+    "machine",
+    "learning",
+    "python"
+  ],
+  "author": "soonfy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soonfy/soonfy_ml/issues"
+  },
+  "homepage": "https://github.com/soonfy/soonfy_ml#readme"
+}
