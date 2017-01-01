@@ -4,7 +4,9 @@
   "description": "machine learning, python",
   "main": "main.py",
   "scripts": {
-    "test": "python3 demo.py"
+    "test": "python3 demo.py",
+    "start": "python3 main.py",
+    "movie": "python3 crawler/crawl_movie.py"
   },
   "repository": {
     "type": "git",
