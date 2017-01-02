@@ -69,5 +69,5 @@ if __name__ == '__main__':
       fd = open(filepath, 'a')
       fd.writelines(score)
       fd.close()
-      print('line over...')
-  print('all lines over...')
+      print('>> line over...')
+  print('>> all lines over...')

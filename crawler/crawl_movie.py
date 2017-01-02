@@ -49,7 +49,7 @@ def pick_tag(tag):
     arr = obj['subjects']
     length = len(arr)
     if length == 0:
-      print('floop over, break...')
+      print('>> floop over, break...')
       break
     for subject in arr:
       temp = []
@@ -63,6 +63,6 @@ def pick_tag(tag):
     print('>> the', page, 'page write success...')
 
 if __name__ == '__main__':
-  tag = input('input movie tag:\n')
+  tag = input('>> input movie tag:\n')
   pick_tag(tag)
-  print('all over...')
+  print('>> all over...')
