@@ -13,4 +13,14 @@
     * 训练算法：此步骤不适用于k-近邻算法。  
     * 测试算法：计算错误率。  
     * 适用算法：首先需要输入样本数据和结构化的输出结果，然后运行k-近邻算法判定输入数据分别属于哪个分类，最后应用对计算出的分类执行后续的处理。  
-  
+
+## remark  
+
+  1. import sklearn throw error "No module named _bz2"  
+    * install libbz2-dev  
+    * rebuild python  
+  ```
+  sudo apt-get install libbz2-dev
+  make
+  sudo make install
+  ```
