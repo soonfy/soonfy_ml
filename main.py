@@ -4,4 +4,4 @@
 # modules
 from apriori import knn
 
-knn.test_knn()
+knn.run()

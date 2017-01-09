@@ -1,5 +1,9 @@
 # machine learning  
 
+## apriori && pratice  
+  1. machine learning  
+  2. scikit learn  
+
 ## KNN  
 
   1. k-近邻算法  

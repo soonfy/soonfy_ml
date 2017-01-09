@@ -14,9 +14,8 @@
     "url": "git+https://github.com/soonfy/soonfy_ml.git"
   },
   "keywords": [
-    "machine",
-    "learning",
-    "python"
+    "machine learning",
+    "python3"
   ],
   "author": "soonfy",
   "license": "ISC",
