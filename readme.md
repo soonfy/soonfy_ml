@@ -2,7 +2,9 @@
 
 ## apriori && pratice  
   1. machine learning  
+    * [knn](knn)  
   2. scikit learn  
+    * neighbors  
 
 ## KNN  
 
