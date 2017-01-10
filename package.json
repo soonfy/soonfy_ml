@@ -6,10 +6,11 @@
   "scripts": {
     "test": "python3 demo.py",
     "start": "python3 main.py",
-    "movie": "python3 crawler/crawl_movie.py",
+    "top": "python3 crawler/crawl_top.py",
     "score": "python3 crawler/crawl_score.py",
     "user": "python3 crawler/crawl_user.py",
-    "dist": "python3 crawler/id_dist.py"
+    "dist": "python3 crawler/util_dist.py",
+    "movie": "python3 crawler/crawl_movie.py"
   },
   "repository": {
     "type": "git",
