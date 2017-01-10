@@ -7,7 +7,9 @@
     "test": "python3 demo.py",
     "start": "python3 main.py",
     "movie": "python3 crawler/crawl_movie.py",
-    "score": "python3 crawler/crawl_score.py"
+    "score": "python3 crawler/crawl_score.py",
+    "user": "python3 crawler/crawl_user.py",
+    "dist": "python3 crawler/id_dist.py"
   },
   "repository": {
     "type": "git",

@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 
 # modules
-from apriori import knn
+# from apriori import knn
+# knn.run()
 
-knn.run()
+
+
+

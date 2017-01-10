@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 # modules
-# from sklearn import datasets
 from sklearn.neighbors import KNeighborsClassifier
 
 def run():
@@ -15,13 +14,3 @@ def run():
   print(neigh.predict([[0.9, 0.7], [1.6, 0.1]]))
   print(neigh.predict_proba([[0.9, 0.7], [1.6, 0.1]]))
   print(neigh.score([[0.9, 0.7], [1.6, 0.1]], [1, 1]))
-
-# def test_knn():
-#   iris = datasets.load_iris()
-#   digits = datasets.load_digits()
-#   print(digits.data)
-#   print(digits.data[1])
-#   print(len(digits.data[1]))
-#   print(digits.target)
-#   print(digits.target[1])
-#   print(len(digits.target[1]))
