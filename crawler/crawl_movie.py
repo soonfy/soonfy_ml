@@ -90,7 +90,7 @@ def get_movie(user_id, amount = 100):
     categorys = get_category(soup)
     user_category = '\t'.join([user_id, url, categorys]) + '\n'
     user_categorys.append(user_category)
-    print('>>> crawl the %s ...' % index)
+    print('>>> crawl the %s movie ...' % index)
   while(next):
     body = request.urlopen(next)
     soup = BeautifulSoup(body, 'html.parser')
@@ -101,9 +101,9 @@ def get_movie(user_id, amount = 100):
       body = request.urlopen(url)
       soup = BeautifulSoup(body, 'html.parser')
       categorys = get_category(soup)
-      user_category = '\t'.join([user_id, url, categorys]) + '\n'
+      user_category = '\t'.join([user_id, url, categorys])
       user_categorys.append(user_category)
-      print('>>> crawl the %s ...' % index)
+      print('>>> crawl the %s movie ...' % index)
       if len(user_categorys) == amount:
         print('>>> user %s crawl success...' % user_id)
         return user_categorys
@@ -111,6 +111,16 @@ def get_movie(user_id, amount = 100):
   return None
 
 if __name__ == '__main__':
-  u_c = get_movie('67492098')
-  write_file(u_c)
+  amount = input('>>> crawl user amount... \n>>> ')
+  filer = open(r'./data/id_dist.txt', 'r')
+  index = 0
+  while index < int(amount):
+    index += 1
+    user_id = filer.readline().strip('\n')
+    print('>>> crawl the %s user -> %s ...' % (index, user_id))
+    u_c = get_movie(user_id)
+    if u_c:
+      write_file(u_c)
+    else:
+      index -= 1
   print('>>> end... \n')
