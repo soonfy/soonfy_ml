@@ -63,7 +63,21 @@ def write_file(user_category, filepath = r'./data/user_category.txt'):
 
 def get_movie(user_id, amount = 100):
   collect = 'https://movie.douban.com/people/%s/collect' % user_id
-  body = request.urlopen(collect)
+  body = None
+  try:
+    body = request.urlopen(collect)
+  except Exception as e:
+    if e.code == 404:
+      print('>>> url %s not exist...' % collect)
+      index -= 1
+      return None
+    elif e.code == 403:
+      print('>>> crawl too faster, sleep...')
+      time.sleep(5)
+      body = request.urlopen(collect)
+    else:
+      print(e.reason)
+      print('>>> wtf...')
   soup = BeautifulSoup(body, 'html.parser')
   next = get_next(soup)
   user_movies = parse_movie(soup, user_id)
@@ -88,17 +102,43 @@ def get_movie(user_id, amount = 100):
         print('>>> wtf...')
     soup = BeautifulSoup(body, 'html.parser')
     categorys = get_category(soup)
-    user_category = '\t'.join([user_id, url, categorys]) + '\n'
+    user_category = '\t'.join([user_id, url, categorys])
     user_categorys.append(user_category)
     print('>>> crawl the %s movie ...' % index)
   while(next):
-    body = request.urlopen(next)
+    try:
+      body = request.urlopen(next)
+    except Exception as e:
+      if e.code == 404:
+        print('>>> url %s not exist...' % next)
+        index -= 1
+        continue
+      elif e.code == 403:
+        print('>>> crawl too faster, sleep...')
+        time.sleep(5)
+        body = request.urlopen(next)
+      else:
+        print(e.reason)
+        print('>>> wtf...')
     soup = BeautifulSoup(body, 'html.parser')
     user_movies = parse_movie(soup, user_id)
     for u_m in user_movies:
       index += 1
       url = u_m.split('\t')[1]
-      body = request.urlopen(url)
+      try:
+        body = request.urlopen(url)
+      except Exception as e:
+        if e.code == 404:
+          print('>>> url %s not exist...' % url)
+          index -= 1
+          continue
+        elif e.code == 403:
+          print('>>> crawl too faster, sleep...')
+          time.sleep(5)
+          body = request.urlopen(url)
+        else:
+          print(e.reason)
+          print('>>> wtf...')
       soup = BeautifulSoup(body, 'html.parser')
       categorys = get_category(soup)
       user_category = '\t'.join([user_id, url, categorys])
