@@ -7,12 +7,13 @@
 import time
 import os
 import re
-
-from bs4 import BeautifulSoup
+import sys
 
 from urllib import request
 from urllib.parse import urlencode
 from http import cookiejar
+
+from bs4 import BeautifulSoup
 
 def spider_login():
   """
@@ -92,22 +93,26 @@ def get_relations(opener, user_id):
 
 if __name__ == '__main__':
   opener = spider_login()
-  login = input('>>> login ? y or n ... \n')
+  login = input('>>> login ? y or n ... \n>>> ')
+  amount = input('>>> crawl user amount... \n>>> ')
   if login == 'y':
-    user_id = input('>>> start douban user id, ex 67492098 ... \n')
+    user_id = input('>>> start douban user id, ex 67492098 ... \n>>> ')
     write_file([user_id])
     user_ids = get_relations(opener, user_id)
     index = 0
-    amount = 0
+    count = 0
     for id in user_ids:
       index += 1
-      print('>>> start crawl douban user %s ... \n' % id)
+      print('>>> start crawl douban user %s ...' % id)
       new_ids = get_relations(opener, id)
       nums = len(new_ids)
-      amount += nums
-      print('>>> this user relations length %s ... \n' % nums)
-      print('>>> all users length %s ... \n' % amount)
+      count += nums
+      print('>>> this user relations length %s ...' % nums)
+      print('>>> all users length %s ...' % count)
       user_ids = user_ids + new_ids
-      print('>>> already crawl %s user ... \n' % index)
+      print('>>> already crawl %s user ...' % index)
+      if amount == index:
+        print('>>> already crawl %s user ...' % index)
+        sys.exit()
   else:
-    print('>>> no login, exit ... \n')
+    print('>>> no login, exit ...')
