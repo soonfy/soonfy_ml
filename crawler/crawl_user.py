@@ -96,6 +96,7 @@ if __name__ == '__main__':
   opener = spider_login()
   login = input('>>> login ? y or n ... \n>>> ')
   amount = input('>>> crawl user amount... \n>>> ')
+  amount = int(amount)
   if login == 'y':
     user_id = input('>>> start douban user id, ex 67492098 ... \n>>> ')
     write_file([user_id])
@@ -112,8 +113,9 @@ if __name__ == '__main__':
       print('>>> all users length %s ...' % count)
       user_ids = user_ids + new_ids
       print('>>> already crawl %s user ...' % index)
-      if amount == count:
-        print('>>> already crawl %s user ...' % count)
+      if count >= amount:
+        print('>>> already crawl amount %s user ...' % count)
+        print('>>> end ...')
         sys.exit()
   else:
     print('>>> no login, exit ...')

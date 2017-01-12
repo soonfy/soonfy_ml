@@ -73,8 +73,9 @@ def get_movie(user_id, amount = 100):
       return None
     elif e.code == 403:
       print('>>> crawl too faster, sleep...')
-      time.sleep(5)
-      body = request.urlopen(collect)
+      while not body:
+        time.sleep(60 * 30)
+        body = request.urlopen(collect)
     else:
       print(e.reason)
       print('>>> wtf...')
@@ -95,8 +96,9 @@ def get_movie(user_id, amount = 100):
         continue
       elif e.code == 403:
         print('>>> crawl too faster, sleep...')
-        time.sleep(5)
-        body = request.urlopen(url)
+        while not body:
+          time.sleep(60 * 30)
+          body = request.urlopen(url)
       else:
         print(e.reason)
         print('>>> wtf...')
@@ -115,8 +117,9 @@ def get_movie(user_id, amount = 100):
         continue
       elif e.code == 403:
         print('>>> crawl too faster, sleep...')
-        time.sleep(5)
-        body = request.urlopen(next)
+        while not body:
+          time.sleep(60 * 30)
+          body = request.urlopen(next)
       else:
         print(e.reason)
         print('>>> wtf...')
@@ -134,8 +137,9 @@ def get_movie(user_id, amount = 100):
           continue
         elif e.code == 403:
           print('>>> crawl too faster, sleep...')
-          time.sleep(5)
-          body = request.urlopen(url)
+          while not body:
+            time.sleep(60 * 30)
+            body = request.urlopen(next)
         else:
           print(e.reason)
           print('>>> wtf...')
@@ -144,7 +148,7 @@ def get_movie(user_id, amount = 100):
       user_category = '\t'.join([user_id, url, categorys])
       user_categorys.append(user_category)
       print('>>> crawl the %s movie ...' % index)
-      if len(user_categorys) == amount:
+      if len(user_categorys) >= amount:
         print('>>> user %s crawl success...' % user_id)
         return user_categorys
   print('>>> user %s collect movie less %s ...' % (user_id, amount))
@@ -157,10 +161,11 @@ if __name__ == '__main__':
   while index < int(amount):
     index += 1
     user_id = filer.readline().strip('\n')
-    print('>>> crawl the %s user -> %s ...' % (index, user_id))
-    u_c = get_movie(user_id)
-    if u_c:
-      write_file(u_c)
-    else:
-      index -= 1
+    if len(user_id) > 0:
+      print('>>> crawl the %s user -> %s ...' % (index, user_id))
+      u_c = get_movie(user_id)
+      if u_c:
+        write_file(u_c)
+      else:
+        index -= 1
   print('>>> end... \n')
