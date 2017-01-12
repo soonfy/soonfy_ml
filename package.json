@@ -9,8 +9,9 @@
     "top": "python3 crawler/crawl_top.py",
     "score": "python3 crawler/crawl_score.py",
     "user": "python3 crawler/crawl_user.py",
-    "dist": "python3 crawler/util_dist.py",
-    "movie": "python3 crawler/crawl_movie.py"
+    "movie": "python3 crawler/crawl_movie.py",
+    "dist": "python3 process/util_dist.py",
+    "data": "python3 process/pre_data.py"
   },
   "repository": {
     "type": "git",

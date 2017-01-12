@@ -3,6 +3,8 @@
 
 'crawl user relations.'
 
+__author__ = 'soonfy'
+
 # modules
 import time
 import os

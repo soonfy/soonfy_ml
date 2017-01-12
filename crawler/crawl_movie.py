@@ -3,6 +3,8 @@
 
 'crawl douban user movie.'
 
+__author__ = 'soonfy'
+
 # modules
 import time
 import os
@@ -11,6 +13,15 @@ from urllib import request
 from urllib.parse import urlencode
 
 from bs4 import BeautifulSoup
+
+from crawler import spider
+
+def log(s):
+  index = 0
+  while index * 60 < s:
+    index += 1
+    time.sleep(60)
+    print('>>> %s min ...' % index)
 
 def get_next(soup):
   """
@@ -65,7 +76,8 @@ def get_movie(user_id, amount = 100):
   collect = 'https://movie.douban.com/people/%s/collect' % user_id
   body = None
   try:
-    body = request.urlopen(collect)
+    opener = spider.create_spider()
+    body = opener.open(collect)
   except Exception as e:
     if e.code == 404:
       print('>>> url %s not exist...' % collect)
@@ -73,8 +85,9 @@ def get_movie(user_id, amount = 100):
       return None
     elif e.code == 403:
       print('>>> crawl too faster, sleep 30m...')
-      time.sleep(60 * 30)
-      body = request.urlopen(collect)
+      log(60 * 30)
+      opener = spider.create_spider()
+      body = opener.open(collect)
     else:
       print(e.reason)
       print('>>> wtf...')
@@ -87,7 +100,8 @@ def get_movie(user_id, amount = 100):
     index += 1
     url = u_m.split('\t')[1]
     try:
-      body = request.urlopen(url)
+      opener = spider.create_spider()
+      body = opener.open(url)
     except Exception as e:
       if e.code == 404:
         print('>>> url %s not exist...' % url)
@@ -95,8 +109,9 @@ def get_movie(user_id, amount = 100):
         continue
       elif e.code == 403:
         print('>>> crawl too faster, sleep 30m...')
-        time.sleep(60 * 30)
-        body = request.urlopen(url)
+        log(60 * 30)
+        opener = spider.create_spider()
+        body = opener.open(url)
       else:
         print(e.reason)
         print('>>> wtf...')
@@ -107,7 +122,8 @@ def get_movie(user_id, amount = 100):
     print('>>> crawl the %s movie ...' % index)
   while(next):
     try:
-      body = request.urlopen(next)
+      opener = spider.create_spider()
+      body = opener.open(next)
     except Exception as e:
       if e.code == 404:
         print('>>> url %s not exist...' % next)
@@ -115,8 +131,9 @@ def get_movie(user_id, amount = 100):
         continue
       elif e.code == 403:
         print('>>> crawl too faster, sleep 30m...')
-        time.sleep(60 * 30)
-        body = request.urlopen(next)
+        log(60 * 30)
+        opener = spider.create_spider()
+        body = opener.open(next)
       else:
         print(e.reason)
         print('>>> wtf...')
@@ -126,7 +143,8 @@ def get_movie(user_id, amount = 100):
       index += 1
       url = u_m.split('\t')[1]
       try:
-        body = request.urlopen(url)
+        opener = spider.create_spider()
+        body = opener.open(next)
       except Exception as e:
         if e.code == 404:
           print('>>> url %s not exist...' % url)
@@ -134,8 +152,9 @@ def get_movie(user_id, amount = 100):
           continue
         elif e.code == 403:
           print('>>> crawl too faster, sleep 30m...')
-          time.sleep(60 * 30)
-          body = request.urlopen(next)
+          log(60 * 30)
+          opener = spider.create_spider()
+          body = opener.open(next)
         else:
           print(e.reason)
           print('>>> wtf...')
@@ -156,6 +175,8 @@ if __name__ == '__main__':
   index = 0
   while index < int(amount):
     index += 1
+    if index <= 77:
+      continue
     user_id = filer.readline().strip('\n')
     if len(user_id) > 0:
       print('>>> crawl the %s user -> %s ...' % (index, user_id))

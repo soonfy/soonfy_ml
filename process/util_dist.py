@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-'user id dist.'
+'data dist.'
+
+__author__ = 'soonfy'
 
 # modules
 import os
