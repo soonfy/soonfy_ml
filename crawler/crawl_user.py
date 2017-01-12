@@ -27,8 +27,8 @@ def spider_login():
     "form_email": 'soonfy@163.com',
     "form_password": 'soonfy163',
     "login": '登录',
-    "captcha-id": 'TWYNLemDPICzffLYfv7v2XQn:en',
-    "captcha-solution": 'again'
+    # "captcha-id": 'TWYNLemDPICzffLYfv7v2XQn:en',
+    # "captcha-solution": 'again'
   }
   data = urlencode(param).encode('utf-8')
   headers = {
@@ -92,6 +92,7 @@ def get_relations(opener, user_id):
   return user_ids
 
 if __name__ == '__main__':
+  write_file([], r'./data/user_ids.txt')
   opener = spider_login()
   login = input('>>> login ? y or n ... \n>>> ')
   amount = input('>>> crawl user amount... \n>>> ')
@@ -111,8 +112,8 @@ if __name__ == '__main__':
       print('>>> all users length %s ...' % count)
       user_ids = user_ids + new_ids
       print('>>> already crawl %s user ...' % index)
-      if amount == index:
-        print('>>> already crawl %s user ...' % index)
+      if amount == count:
+        print('>>> already crawl %s user ...' % count)
         sys.exit()
   else:
     print('>>> no login, exit ...')
