@@ -72,10 +72,9 @@ def get_movie(user_id, amount = 100):
       index -= 1
       return None
     elif e.code == 403:
-      print('>>> crawl too faster, sleep...')
-      while not body:
-        time.sleep(60 * 30)
-        body = request.urlopen(collect)
+      print('>>> crawl too faster, sleep 30m...')
+      time.sleep(60 * 30)
+      body = request.urlopen(collect)
     else:
       print(e.reason)
       print('>>> wtf...')
@@ -95,10 +94,9 @@ def get_movie(user_id, amount = 100):
         index -= 1
         continue
       elif e.code == 403:
-        print('>>> crawl too faster, sleep...')
-        while not body:
-          time.sleep(60 * 30)
-          body = request.urlopen(url)
+        print('>>> crawl too faster, sleep 30m...')
+        time.sleep(60 * 30)
+        body = request.urlopen(url)
       else:
         print(e.reason)
         print('>>> wtf...')
@@ -116,10 +114,9 @@ def get_movie(user_id, amount = 100):
         index -= 1
         continue
       elif e.code == 403:
-        print('>>> crawl too faster, sleep...')
-        while not body:
-          time.sleep(60 * 30)
-          body = request.urlopen(next)
+        print('>>> crawl too faster, sleep 30m...')
+        time.sleep(60 * 30)
+        body = request.urlopen(next)
       else:
         print(e.reason)
         print('>>> wtf...')
@@ -136,10 +133,9 @@ def get_movie(user_id, amount = 100):
           index -= 1
           continue
         elif e.code == 403:
-          print('>>> crawl too faster, sleep...')
-          while not body:
-            time.sleep(60 * 30)
-            body = request.urlopen(next)
+          print('>>> crawl too faster, sleep 30m...')
+          time.sleep(60 * 30)
+          body = request.urlopen(next)
         else:
           print(e.reason)
           print('>>> wtf...')
