@@ -8,13 +8,18 @@ __author__ = 'soonfy'
 # modules
 import time
 import os
+import re
 
 from urllib import request
 from urllib.parse import urlencode
 
 from bs4 import BeautifulSoup
 
-from crawler import spider
+# run movie
+import spider
+
+# test
+# from crawler import spider
 
 def log(s):
   index = 0
@@ -92,6 +97,19 @@ def get_movie(user_id, amount = 100):
       print(e.reason)
       print('>>> wtf...')
   soup = BeautifulSoup(body, 'html.parser')
+  tag_h = soup.h1
+  if tag_h:
+    user_collect = tag_h.string
+    print(user_collect)
+    m = re.search(r'看过的电影\((\d*)\)', user_collect)
+    if m and int(m.group(1)) >= amount:
+      print(m.group(1))
+    else:
+      print('>>> user %s collect movie less %s ...' % (user_id, amount))
+      return None
+  else:
+    print('>>> user %s collect movie less %s ...' % (user_id, amount))
+    return None
   next = get_next(soup)
   user_movies = parse_movie(soup, user_id)
   user_categorys = []
@@ -120,6 +138,9 @@ def get_movie(user_id, amount = 100):
     user_category = '\t'.join([user_id, url, categorys])
     user_categorys.append(user_category)
     print('>>> crawl the %s movie ...' % index)
+    if len(user_categorys) >= amount:
+      print('>>> user %s crawl success...' % user_id)
+      return user_categorys
   while(next):
     try:
       opener = spider.create_spider()
@@ -138,13 +159,14 @@ def get_movie(user_id, amount = 100):
         print(e.reason)
         print('>>> wtf...')
     soup = BeautifulSoup(body, 'html.parser')
+    next = get_next(soup)
     user_movies = parse_movie(soup, user_id)
     for u_m in user_movies:
       index += 1
       url = u_m.split('\t')[1]
       try:
         opener = spider.create_spider()
-        body = opener.open(next)
+        body = opener.open(url)
       except Exception as e:
         if e.code == 404:
           print('>>> url %s not exist...' % url)
@@ -154,7 +176,7 @@ def get_movie(user_id, amount = 100):
           print('>>> crawl too faster, sleep 30m...')
           log(60 * 30)
           opener = spider.create_spider()
-          body = opener.open(next)
+          body = opener.open(url)
         else:
           print(e.reason)
           print('>>> wtf...')
@@ -175,8 +197,8 @@ if __name__ == '__main__':
   index = 0
   while index < int(amount):
     index += 1
-    if index <= 77:
-      continue
+    # if index <= 77:
+    #   continue
     user_id = filer.readline().strip('\n')
     if len(user_id) > 0:
       print('>>> crawl the %s user -> %s ...' % (index, user_id))

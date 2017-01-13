@@ -22,7 +22,6 @@ def read_ua(filepath = r'./data/ua.txt'):
   file_obj.close()
   uas = ua_str.split('\n')
   ua = random.choice(uas)
-  print(ua)
   return ua
 
 def create_spider():
