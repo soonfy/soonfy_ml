@@ -84,11 +84,11 @@ def get_movie(user_id, amount = 100):
     opener = spider.create_spider()
     body = opener.open(collect)
   except Exception as e:
-    if e.code == 404:
+    if e.code and e.code == 404:
       print('>>> url %s not exist...' % collect)
       index -= 1
       return None
-    elif e.code == 403:
+    elif e.code and e.code == 403:
       print('>>> crawl too faster, sleep 30m...')
       log(60 * 30)
       opener = spider.create_spider()
@@ -121,11 +121,12 @@ def get_movie(user_id, amount = 100):
       opener = spider.create_spider()
       body = opener.open(url)
     except Exception as e:
-      if e.code == 404:
+      print(e)
+      if e.code and e.code == 404:
         print('>>> url %s not exist...' % url)
         index -= 1
         continue
-      elif e.code == 403:
+      elif e.code and e.code == 403:
         print('>>> crawl too faster, sleep 30m...')
         log(60 * 30)
         opener = spider.create_spider()
@@ -146,11 +147,11 @@ def get_movie(user_id, amount = 100):
       opener = spider.create_spider()
       body = opener.open(next)
     except Exception as e:
-      if e.code == 404:
+      if e.code and e.code == 404:
         print('>>> url %s not exist...' % next)
         index -= 1
         continue
-      elif e.code == 403:
+      elif e.code and e.code == 403:
         print('>>> crawl too faster, sleep 30m...')
         log(60 * 30)
         opener = spider.create_spider()
@@ -168,11 +169,11 @@ def get_movie(user_id, amount = 100):
         opener = spider.create_spider()
         body = opener.open(url)
       except Exception as e:
-        if e.code == 404:
+        if e.code and e.code == 404:
           print('>>> url %s not exist...' % url)
           index -= 1
           continue
-        elif e.code == 403:
+        elif e.code and e.code == 403:
           print('>>> crawl too faster, sleep 30m...')
           log(60 * 30)
           opener = spider.create_spider()
@@ -195,14 +196,25 @@ if __name__ == '__main__':
   amount = input('>>> crawl user amount... \n>>> ')
   filer = open(r'./data/id_dist.txt', 'r')
   index = 0
+  line = 0
   while index < int(amount):
     index += 1
-    # if index <= 77:
-    #   continue
+    line += 1
     user_id = filer.readline().strip('\n')
+    print('>>> read the %s line ...' % (line))
+    # restart
+    if line <= 148:
+      index = 99
+      index -= 1
+      continue
     if len(user_id) > 0:
       print('>>> crawl the %s user -> %s ...' % (index, user_id))
-      u_c = get_movie(user_id)
+      u_c = None
+      try:
+        u_c = get_movie(user_id)
+      except Exception as e:
+        print(e.reason)
+        u_c = get_movie(user_id)
       if u_c:
         write_file(u_c)
       else:
