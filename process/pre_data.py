@@ -34,7 +34,7 @@ def merge_category(filepath = r'./data/user_category.txt'):
       name = metas[0]
     else:
       temp += metas[2:]
-    print('>>> pre %s line data ...' % index)
+    # print('>>> pre %s line data ...' % index)
   dist_category = set(dist_category)
   return dist_category, all_category, names
 
@@ -58,8 +58,10 @@ def write_file(names, filepath = r'./data/user_names.txt'):
   file_obj.close()
 
 if __name__ == '__main__':
-  cates, user_cates, names = merge_category()
+  cates, user_cates, names = merge_category(r'./data/user_category_test.txt')
   print(names)
-  write_file(names)
+  print(len(names))
+  write_file(names, r'./data/user_names_test.txt')
   data = count_category(cates, user_cates)
   print(data)
+  print(len(data))

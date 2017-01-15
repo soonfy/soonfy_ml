@@ -11,7 +11,8 @@
     "user": "python3 crawler/crawl_user.py",
     "movie": "python3 crawler/crawl_movie.py",
     "dist": "python3 process/util_dist.py",
-    "data": "python3 process/pre_data.py"
+    "data": "python3 process/pre_data.py",
+    "apriori": "python3 apriori.py"
   },
   "repository": {
     "type": "git",

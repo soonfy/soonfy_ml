@@ -15,11 +15,7 @@ from urllib.parse import urlencode
 
 from bs4 import BeautifulSoup
 
-# run movie
-import spider
-
-# test
-# from crawler import spider
+from crawler import spider
 
 def log(s):
   index = 0
@@ -86,7 +82,6 @@ def get_movie(user_id, amount = 100):
   except Exception as e:
     if e.code and e.code == 404:
       print('>>> url %s not exist...' % collect)
-      index -= 1
       return None
     elif e.code and e.code == 403:
       print('>>> crawl too faster, sleep 30m...')
@@ -100,10 +95,11 @@ def get_movie(user_id, amount = 100):
   tag_h = soup.h1
   if tag_h:
     user_collect = tag_h.string
-    print(user_collect)
+    # print('>>> ', user_collect)
     m = re.search(r'看过的电影\((\d*)\)', user_collect)
     if m and int(m.group(1)) >= amount:
-      print(m.group(1))
+      # print('>>> ', m.group(1))
+      pass
     else:
       print('>>> user %s collect movie less %s ...' % (user_id, amount))
       return None
@@ -140,7 +136,7 @@ def get_movie(user_id, amount = 100):
     user_categorys.append(user_category)
     print('>>> crawl the %s movie ...' % index)
     if len(user_categorys) >= amount:
-      print('>>> user %s crawl success...' % user_id)
+      # print('>>> user %s crawl success...' % user_id)
       return user_categorys
   while(next):
     try:
@@ -203,8 +199,7 @@ if __name__ == '__main__':
     user_id = filer.readline().strip('\n')
     print('>>> read the %s line ...' % (line))
     # restart
-    if line <= 148:
-      index = 99
+    if line <= 200:
       index -= 1
       continue
     if len(user_id) > 0:
@@ -216,7 +211,7 @@ if __name__ == '__main__':
         print(e.reason)
         u_c = get_movie(user_id)
       if u_c:
-        write_file(u_c)
+        write_file(u_c, r'./data/user_category_test.txt')
       else:
         index -= 1
   print('>>> end... \n')
