@@ -15,7 +15,8 @@ from urllib.parse import urlencode
 
 from bs4 import BeautifulSoup
 
-from crawler import spider
+# from crawler import spider
+import spider
 
 def log(s):
   index = 0
@@ -199,7 +200,7 @@ if __name__ == '__main__':
     user_id = filer.readline().strip('\n')
     print('>>> read the %s line ...' % (line))
     # restart
-    if line <= 200:
+    if line <= 135:
       index -= 1
       continue
     if len(user_id) > 0:
@@ -208,10 +209,9 @@ if __name__ == '__main__':
       try:
         u_c = get_movie(user_id)
       except Exception as e:
-        print(e.reason)
         u_c = get_movie(user_id)
       if u_c:
-        write_file(u_c, r'./data/user_category_test.txt')
+        write_file(u_c, r'./data/user_category.txt')
       else:
         index -= 1
   print('>>> end... \n')

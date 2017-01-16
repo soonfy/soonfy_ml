@@ -21,7 +21,7 @@ def knn(user_justify):
   cates, user_cates, names = pre_data.merge_category()
   data_traning = pre_data.count_category(cates, user_cates)[0:90]
   labels_traning = readLabels()[0:90]
-  neigh = KNeighborsClassifier(n_neighbors = 10)
+  neigh = KNeighborsClassifier(n_neighbors = 15)
   neigh.fit(data_traning, labels_traning)
   data_justify = pre_data.count_category(cates, [user_justify])
   print(neigh.predict(data_justify))

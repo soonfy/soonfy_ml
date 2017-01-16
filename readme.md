@@ -30,3 +30,8 @@
   make
   sudo make install
   ```
+
+  2. import matplotlib throw error "No module named _tkinter"  
+  ```
+  sudo apt-get install python3-tk
+  ```

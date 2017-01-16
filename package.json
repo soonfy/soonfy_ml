@@ -12,7 +12,9 @@
     "movie": "python3 crawler/crawl_movie.py",
     "dist": "python3 process/util_dist.py",
     "data": "python3 process/pre_data.py",
-    "apriori": "python3 apriori.py"
+    "apriori": "python3 apriori.py",
+    "knn": "python3 apriori/knn.py",
+    "logistic": "python3 apriori/logistic_regression.py"
   },
   "repository": {
     "type": "git",
