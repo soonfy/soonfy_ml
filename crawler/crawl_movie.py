@@ -200,8 +200,7 @@ if __name__ == '__main__':
     user_id = filer.readline().strip('\n')
     print('>>> read the %s line ...' % (line))
     # restart
-    # if line < 343:
-    if line < 1058:
+    if line < 1813:
       index -= 1
       continue
     if len(user_id) > 0:
